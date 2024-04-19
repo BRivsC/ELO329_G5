@@ -1,23 +1,28 @@
 public class Main {
-    public static void main(String[] args) {
-        // Crear una instancia de la mascota con el nombre "Garfield"
+    public static void Main(String[] args) {
+        // Se crea una instancia de la mascota con el nombre "Garfield"
         Mascota mascota = new Mascota("Garfield");
 
-        //Item Item = new jugete(id , nombre, cantidad);
-        //Item Item = new Medicina(id , nombre, cantidad);
-        //Item Item = new Comida(id , nombre, cantidad);
 
+        //instanccia de las clases de item : jugete, comida, medicina
         Jugete jugete = new Jugete(1, "pelota", 4);
-        Comida comida = new Comida(2, "Pan", 4);
-       // Comida comida = new Comida(3, "Queso", 4);
+       // Comida comida = new Comida(2, "Pan", 4);
+        Comida comida = new Comida(3, "Queso", 4);
         Medicina medicina = new Medicina(4, "Jarabe", 4);
 
+        //Apllicar cada item de la mascota
+        aplicarItem(mascota, jugete);
+        aplicarItem(mascota, comida);
+        aplicarItem(mascota, medicina);
 
+        // Mostrar atributos iniciales de la mascota
+        mostrarAtributos(mascota);
 
-        // Mostrar información inicial de la mascotamain
-        System.out.println(mascota);
+        mascota.dormir();
+        System.out.println("Atributos de la mascota luego de dormir:");
+        mostrarAtributos(mascota);
 
-// Agregar menu que recibe por teclado la opcion de continuar o salirse del juego.
+// PENDIENTE Agregar menu que recibe por teclado la opcion de continuar o salirse del juego.
 
 
         // Simular el paso del tiempo
@@ -44,3 +49,23 @@ public class Main {
         }
     }
 }
+
+
+
+    // Método para aplicar un ítem a la mascota
+    private static void aplicarItem(Mascota mascota, Item item) {
+        if (item instanceof Comida) {
+            mascota.actualizarSalud(20);
+            mascota.actualizarEnergia(20);
+            System.out.println("Dando de comer " + item.getNombre() + " a " + mascota.getNombre());
+        } else if (item instanceof Medicina) {
+            mascota.actualizarSalud(40);
+            System.out.println("Aplicando medicamento " + item.getNombre() + " a " + mascota.getNombre());
+        } else if (item instanceof Jugete) {
+            mascota.actualizarFelicidad(30);
+            System.out.println("Usando juguete " + item.getNombre() + " con " + mascota.getNombre());
+        } else {
+            System.out.println("Ítem no reconocido.");
+        }
+    }
+

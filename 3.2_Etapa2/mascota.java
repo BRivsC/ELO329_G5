@@ -1,4 +1,4 @@
-public class Mascota {
+javpublic class Mascota {
 
     private String nombre; // nombre mascota 
     private float edad; // en unidades de tiempo de simulación
