@@ -1,5 +1,5 @@
 public class Main {
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         // Se crea una instancia de la mascota con el nombre "Garfield"
         Mascota mascota = new Mascota("Garfield");
 
@@ -16,11 +16,11 @@ public class Main {
         aplicarItem(mascota, medicina);
 
         // Mostrar atributos iniciales de la mascota
-        mostrarAtributos(mascota);
+        //mostrarAtributos(mascota);
 
         mascota.dormir();
         System.out.println("Atributos de la mascota luego de dormir:");
-        mostrarAtributos(mascota);
+        //mostrarAtributos(mascota);
 
 // PENDIENTE Agregar menu que recibe por teclado la opcion de continuar o salirse del juego.
 
@@ -48,7 +48,6 @@ public class Main {
             System.out.println(mascota);
         }
     }
-}
 
 
 
@@ -68,4 +67,4 @@ public class Main {
             System.out.println("Ítem no reconocido.");
         }
     }
-
+}
