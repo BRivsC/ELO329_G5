@@ -1,4 +1,4 @@
-javpublic class Mascota {
+public class Mascota {
 
     private String nombre; // nombre mascota 
     private float edad; // en unidades de tiempo de simulación
@@ -122,15 +122,46 @@ javpublic class Mascota {
     
         // Método para mostrar información de la mascota
     
-        public String toString() {
-            return "Mascota{" +
-                    "nombre='" + nombre + '\'' +
-                    ", edad=" + edad +
-                    ", salud=" + salud +
-                    ", energia=" + energia +
-                    ", felicidad=" + felicidad +
-                    ", estado=" + estado +
-                    '}';
+        @Override
+        public String toString(){
+            String estadoString;
+            switch (estado){
+                case MEH:
+                    estadoString = "(-__-) Meh....";
+                   break;
+                case WEEEH:
+                    estadoString = "\\(^_^)/ Weeeeeh!";
+                    break;
+                case SNIF:
+                    estadoString = "(._.) snif....";
+                    break;
+                case HAMBRE:
+                    estadoString = "(OoO) hambre hambre!";
+                    break;
+                case GRRRR:
+                    estadoString = "(ôwô) grrrr....";
+                    break;
+                case CANSADO:
+                    estadoString = "(=_=) zzzz....";
+                    break;
+                case MUERTO:
+                    estadoString = "(x.x) fin del juego";
+                    break;
+                default:
+                    estadoString = "Estado desconocido";
+                    break;
+            }
+            return "Mascota Virtual" +
+                    "\n" +
+                    "\nAtributos" +
+                    "\n---------" +
+                    "\nnombre = " + nombre +
+                    "\nedad = " + edad +
+                    "\nsalud = " + salud +
+                    "\nenergia = " + energia +
+                    "\nfelicidad = " + felicidad +
+                    "\nestado = " + estadoString +
+                    "\n";
         }
     }
     
