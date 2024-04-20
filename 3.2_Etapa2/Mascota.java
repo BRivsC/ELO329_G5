@@ -10,8 +10,8 @@ public class Mascota {
         public Mascota(String nombre) {
             this.nombre = nombre;
             this.edad = 0.0f;
-            this.salud = 100;
-            this.energia = 100;
+            this.salud = 50;
+            this.energia = 50;
             this.felicidad = 50;
             this.estado = Estado.MEH;
         }
@@ -70,25 +70,34 @@ public class Mascota {
     
         public void actualizarSalud(int deltaSalud) {
             
-            salud = Math.max(0, salud + deltaSalud);
+            salud = salud + deltaSalud;
             if(salud > 100){
                 salud = 100;
+            }
+            else if(salud < 0){
+                salud = 0;
             }
             actualizarEstado();
         }
     
         public void actualizarEnergia(int deltaEnergia) {
-            energia = Math.max(0, energia + deltaEnergia);
+            energia = energia + deltaEnergia;
             if(energia > 100){
-                energia=100;
+                energia = 100;
+            }
+            else if(energia < 0){
+                energia = 0;
             }
             actualizarEstado();
         }
     
         public void actualizarFelicidad(int deltaFelicidad) {
-            felicidad = Math.max(0, felicidad + deltaFelicidad);
+            felicidad = felicidad + deltaFelicidad;
             if(felicidad > 100){
                 felicidad = 100;
+            }
+            else if(felicidad < 0){
+                felicidad = 0;
             }
             actualizarEstado();
         }
@@ -96,15 +105,41 @@ public class Mascota {
         // Método para actualizar el estado
     
         private void actualizarEstado() {
-            if (edad <= 5 && salud <= 10) {
-                felicidad -= 20;
-            } else if (edad <= 10 && salud <= 50) {
-                felicidad -= 20;
-                energia -= 10;
-            } else if (salud <= 50) {
-                felicidad -= 30;
-                energia -= 20;
-            }
+            // if (edad <= 5 && salud <= 10) {
+            //     if(felicidad < 20){
+            //         felicidad  = 0;   
+            //     }
+            //     else{
+            //         felicidad -= 20;
+            //     }
+
+            // } else if (edad > 5 && edad <= 10 && salud <= 50) {
+            //     if (felicidad < 20) {
+            //         felicidad = 0;
+            //     }
+            //     else{
+            //         felicidad -= 20;
+            //     }
+            //     if (energia < 10) {
+            //         energia = 0;                    
+            //     }
+            //     else{
+            //         energia -= 10;
+            //     }
+            // } else if (salud <= 50) {
+            //     if (felicidad < 30) {
+            //         felicidad = 0;
+            //     }
+            //     else{
+            //         felicidad -= 30;
+            //     }
+            //     if (energia < 20) {
+            //         energia = 0;                    
+            //     }
+            //     else{
+            //         energia -= 20;
+            //     }
+            // }
     
             if (felicidad >= 60) {
                 estado = Estado.WEEEH;
@@ -124,9 +159,10 @@ public class Mascota {
         // Método para dormir
     
         public void dormir() {
+            System.out.println(nombre + " ha dormido como un tronco!");
             energia = 100;
-            salud += 15;
-            felicidad += 15;
+            actualizarSalud(15);
+            actualizarFelicidad(15);
             actualizarEstado();
         }
     
@@ -161,9 +197,7 @@ public class Mascota {
                     estadoString = "Estado desconocido";
                     break;
             }
-            return "Mascota Virtual" +
-                    "\n" +
-                    "\nAtributos" +
+            return  "\nAtributos" +
                     "\n---------" +
                     "\nnombre = " + nombre +
                     "\nedad = " + edad +

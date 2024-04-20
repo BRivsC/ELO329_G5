@@ -10,15 +10,12 @@ public class Comida extends Item {
     // Método abstracto para definir sus efectos
     // Efectos de la comida: +20 energía, +20 salud
     public void usarItem(Mascota mascota, Item item){
+        System.out.println("Dando de comer " + item.getNombre() + "...");
         // + 20 Energía
-        int nuevaEnergia = mascota.getEnergia();
-        nuevaEnergia+=20;
-        mascota.setEnergia(nuevaEnergia);
+        mascota.actualizarEnergia(20);
 
         // + 20 Salud
-        int nuevaSalud = mascota.getSalud();
-        nuevaSalud+=20;
-        mascota.setSalud(nuevaSalud);
+        mascota.actualizarSalud(20);
         
     }
 }

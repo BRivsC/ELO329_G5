@@ -39,14 +39,3 @@ public abstract class Item {
     }
 }
 
-// class Alimento extends Item
-// {
-//     public Alimento(int id, String nombre, int cantidad) {
-//         super(id, nombre, cantidad);
-//     }
-
-//     public void usarItem(Mascota.getEnergia){
-        
-
-//     }
-// }

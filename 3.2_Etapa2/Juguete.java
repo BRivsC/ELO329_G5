@@ -11,9 +11,8 @@ public class Juguete extends Item {
     // Efectos del juguete: +30 felicidad
     public void usarItem(Mascota mascota, Item item){
         // + 30 Felicidad
-        int nuevaFelicidad = mascota.getFelicidad();
-        nuevaFelicidad+=20;
-        mascota.setFelicidad(nuevaFelicidad);
+        System.out.println("Usando Juguete " + item.getNombre() + "...");
+        mascota.actualizarFelicidad(30);
         
     }
 
