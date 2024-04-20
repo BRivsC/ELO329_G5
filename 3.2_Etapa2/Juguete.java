@@ -1,20 +1,20 @@
-public class Medicina extends Item {
-    // Constructor de medicina
+public class Juguete extends Item {
+    // Constructor de juguete
     //  id, el cual se utilizará para poder acceder a cada ítem.
     //  cantidad, correspondiente a la cantidad de elementos existente para dicho elemento.
     //  nombre, correspondiente al nombre de dicho ítem.
-    public Medicina(int id, String nombre, int cantidad) {
+    public Juguete(int id, String nombre, int cantidad) {
         super(id, nombre, cantidad);
     }
-
+    
     // Método abstracto para definir sus efectos
-    // Efectos de la medicina: +40 Salud
+    // Efectos del juguete: +30 felicidad
     public void usarItem(Mascota mascota, Item item){
-        // +40 Salud
-        int nuevaSalud = mascota.getSalud();
-        nuevaSalud+=20;
-        mascota.setSalud(nuevaSalud);
+        // + 30 Felicidad
+        int nuevaFelicidad = mascota.getFelicidad();
+        nuevaFelicidad+=20;
+        mascota.setFelicidad(nuevaFelicidad);
         
     }
-}
 
+}
