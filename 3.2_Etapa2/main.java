@@ -24,7 +24,7 @@ public class Main {
 
         juguete.usarItem(mascota, juguete);
         System.out.println(mascota);
-
+        //Se aplicara el metodo dormir
         mascota.dormir();
         System.out.println(mascota);
     }

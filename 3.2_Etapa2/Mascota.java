@@ -104,43 +104,7 @@ public class Mascota {
     
         // Método para actualizar el estado
     
-        private void actualizarEstado() {
-            // if (edad <= 5 && salud <= 10) {
-            //     if(felicidad < 20){
-            //         felicidad  = 0;   
-            //     }
-            //     else{
-            //         felicidad -= 20;
-            //     }
-
-            // } else if (edad > 5 && edad <= 10 && salud <= 50) {
-            //     if (felicidad < 20) {
-            //         felicidad = 0;
-            //     }
-            //     else{
-            //         felicidad -= 20;
-            //     }
-            //     if (energia < 10) {
-            //         energia = 0;                    
-            //     }
-            //     else{
-            //         energia -= 10;
-            //     }
-            // } else if (salud <= 50) {
-            //     if (felicidad < 30) {
-            //         felicidad = 0;
-            //     }
-            //     else{
-            //         felicidad -= 30;
-            //     }
-            //     if (energia < 20) {
-            //         energia = 0;                    
-            //     }
-            //     else{
-            //         energia -= 20;
-            //     }
-            // }
-    
+        private void actualizarEstado() {    
             if (felicidad >= 60) {
                 estado = Estado.WEEEH;
             } else if (felicidad <= 20) {
