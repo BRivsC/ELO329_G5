@@ -69,17 +69,27 @@ public class Mascota {
         // Métodos para actualizar los indicadores
     
         public void actualizarSalud(int deltaSalud) {
+            
             salud = Math.max(0, salud + deltaSalud);
+            if(salud > 100){
+                salud = 100;
+            }
             actualizarEstado();
         }
     
         public void actualizarEnergia(int deltaEnergia) {
             energia = Math.max(0, energia + deltaEnergia);
+            if(energia > 100){
+                energia=100;
+            }
             actualizarEstado();
         }
     
         public void actualizarFelicidad(int deltaFelicidad) {
             felicidad = Math.max(0, felicidad + deltaFelicidad);
+            if(felicidad > 100){
+                felicidad = 100;
+            }
             actualizarEstado();
         }
     
