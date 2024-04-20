@@ -9,6 +9,10 @@ public abstract class Item {
         this.cantidad = cantidad;
     }
 
+    // Método abstracto para aplicar el efecto a la mascota
+    // Dentro de cada subclase se pueden definir sus efectos sobre la mascota
+    public abstract void usarItem(Mascota mascota, Item item);
+
     // Getters y setters
     public int getId() {
         return id;
@@ -34,3 +38,15 @@ public abstract class Item {
         this.cantidad = cantidad;
     }
 }
+
+// class Alimento extends Item
+// {
+//     public Alimento(int id, String nombre, int cantidad) {
+//         super(id, nombre, cantidad);
+//     }
+
+//     public void usarItem(Mascota.getEnergia){
+        
+
+//     }
+// }
