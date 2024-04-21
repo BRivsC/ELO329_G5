@@ -22,12 +22,15 @@ public class Main {
         // variables para controlar el tiempo simulado
         float tiempoSimulado = 0.0f;
         final float tiempoIncremento = 0.5f;
+        // Primer Paso del tiempo
+        tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
+        mascota.envejecer( tiempoIncremento );
         
         // leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
         
         
-        
+
         while(true){
             
             if( mascota.getEstado() == Estado.MUERTO) {
@@ -52,11 +55,11 @@ public class Main {
             
             if( opcion.equalsIgnoreCase ("x") ){
                 
-                System.out.println("Fin de la simulacion");
+                System.out.println("\nFin de la simulacion\n");
                 break;
                 
             } else if (  opcion.equalsIgnoreCase ("c") ) {
-                System.out.println("Continuar");
+                System.out.println();
                 
                 tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
                 mascota.envejecer( tiempoIncremento );
@@ -67,7 +70,7 @@ public class Main {
                 try {
                     opcionId = Integer.parseInt(opcion);
                 } catch (NumberFormatException e) {
-                    System.out.println("Opción inválida");
+                    System.out.println("\nOpción inválida\n");
                     continue; // Continuar con la siguiente iteración del bucle
                 }
                 if (opcionId == 0) {
@@ -77,12 +80,12 @@ public class Main {
                 }
                 else if ( inventario.existeItem( opcionId) == 1 ){
                     // Procesar la opción seleccionada por el usuario
-                    mascota.envejecer( tiempoIncremento );
                     inventario.usarItem_Inventario(mascota, opcionId);
+                    mascota.envejecer( tiempoIncremento );
                     tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
                     
                 } else {
-                    System.out.println("Opcion Invalida");
+                    System.out.println("\nOpcion Invalida\n");
                 }
             }
             

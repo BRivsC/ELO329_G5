@@ -112,10 +112,23 @@ public class Mascota {
     
     
     public void envejecer(float tiempoIncremento){
+        
         actualizarSalud(-5);
         actualizarEnergia(-5);
         actualizarFelicidad(-5);
         actualizarEdad( tiempoIncremento );
+        
+        if(edad <= 5 && salud <= 10){
+            actualizarFelicidad(-20);
+        }
+        else if(edad > 5 && edad <= 10 && salud <= 50){
+            actualizarFelicidad(-20);
+            actualizarEnergia(-10);
+        }
+        else if(edad > 10 && salud <= 50){
+            actualizarFelicidad(-30);
+            actualizarEnergia(-20);
+        }
     }
     
     // Método para actualizar el estado
