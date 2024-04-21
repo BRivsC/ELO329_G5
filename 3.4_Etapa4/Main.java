@@ -1,7 +1,9 @@
-import java.util.Scanner;
+import  java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class Main {
         String csvFile = args[0];
         String line = "";
         String csvSplitBy = ";";
-        String nombreMascota = "";  
+        String nombreMascota = "";
         
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             // Registrar la primera línea como nombre de la mascota
@@ -48,6 +50,7 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
         // Se crea una instancia de la mascota con el nombre desde config.csv
         Mascota mascota = new Mascota(nombreMascota);
@@ -58,7 +61,22 @@ public class Main {
         
         // leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
-        
+
+
+        // Bonus: Generar un archivo .csv con el resumen de la última partida
+        // Formato: Edad; Salud; Energía; Felicidad
+        // Escritura de encabezados
+        String outputCSV = "ultima_partida.csv"; // .csv con el resumen
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputCSV))) {
+            // Escribir encabezados
+            bw.write("Edad; Salud; Energia; Felicidad\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+        // Fin de parte Bonus
+
+
         while(true){
             
             if( mascota.getEstado() == Estado.MUERTO) {
@@ -70,7 +88,18 @@ public class Main {
             
             //Mostrar los atributos de la mascota
             System.out.println(mascota);
-            
+
+            // Bonus: Escritura de atributos
+            // Formato: Edad; Salud; Energía; Felicidad
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputCSV, true))) {
+                // Registrar atributos
+                bw.write(mascota.getEdad()+";"+ mascota.getSalud()+";"+ mascota.getEnergia()+";"+ mascota.getFelicidad()+"\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            // Fin de bonus
+
             //Mostrar estado del inventario y la opcion de dormir
             System.out.println("Acciones");
             System.out.println("------------------");
