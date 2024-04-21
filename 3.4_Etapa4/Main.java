@@ -56,8 +56,13 @@ public class Main {
         Mascota mascota = new Mascota(nombreMascota);
         
         // variables para controlar el tiempo simulado
+        System.out.println();
         float tiempoSimulado = 0.0f;
         final float tiempoIncremento = 0.5f;
+
+        // Incremento de tiempo del inicio de partida
+        tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
+        mascota.envejecer( tiempoIncremento );
         
         // leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
@@ -84,7 +89,7 @@ public class Main {
                 break;
             }
             //mostrar el tiempo 
-            System.out.println("Tiempo simulado :" + tiempoSimulado );
+            System.out.println("Tiempo simulado : " + tiempoSimulado );
             
             //Mostrar los atributos de la mascota
             System.out.println(mascota);
@@ -115,11 +120,11 @@ public class Main {
             
             if( opcion.equalsIgnoreCase ("x") ){
                 
-                System.out.println("Fin de la simulación");
+                System.out.println("\nFin de la simulación\n");
                 break;
                 
             } else if (  opcion.equalsIgnoreCase ("c") ) {
-                System.out.println("Continuar");
+                System.out.println();
                 
                 tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
                 mascota.envejecer( tiempoIncremento );
@@ -130,23 +135,24 @@ public class Main {
                 try {
                     opcionId = Integer.parseInt(opcion);
                 } catch (NumberFormatException e) {
-                    System.out.println("Opción inválida");
+                    System.out.println("\nOpción inválida\n");
                     continue; // Continuar con la siguiente iteración del bucle
                 }
                 // Acción de dormir
                 if (opcionId == 0) {
+                    mascota.dormir();
                     mascota.envejecer( tiempoIncremento );
                     tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
-                    mascota.dormir();
+
                 // Número escogido corresponde a algo dentro del inventario
                 } else if ( inventario.existeItem( opcionId) == 1 ){
                     // Procesar la opción seleccionada por el usuario
-                    mascota.envejecer( tiempoIncremento );
                     inventario.usarItem_Inventario(mascota, opcionId);
+                    mascota.envejecer( tiempoIncremento );
                     tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
                     
                 } else {
-                    System.out.println("Opción Inválida");
+                    System.out.println("\nOpción Inválida\n");
                 }
             }
         }
