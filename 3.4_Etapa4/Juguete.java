@@ -15,5 +15,4 @@ public class Juguete extends Item {
         mascota.actualizarFelicidad(30);
         
     }
-
 }
