@@ -9,9 +9,8 @@ public class Main {
         Medicina medicina = new Medicina(4, "Jarabe", 4);
         
         //Apllicar cada item de la mascota
-        System.out.println("Atributos");
         System.out.println(mascota);
-        System.out.println("------------------");
+    
         
         comida.usarItem(mascota, comida);
         System.out.println(mascota);

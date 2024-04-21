@@ -11,7 +11,7 @@ public class Medicina extends Item {
     // Efectos de la medicina: +40 Salud
     public void usarItem(Mascota mascota, Item item){
         // +40 Salud
-        System.out.println("Aplicando medicamento " + item.getNombre() + "...");
+        System.out.println("\nAplicando medicamento " + item.getNombre() + "...");
         mascota.actualizarSalud(40);
         
     }

@@ -182,7 +182,7 @@ public class Mascota {
             estadoString = "Estado desconocido";
             break;
         }
-        return  "\nAtributos" +
+        return  "Atributos" +
         "\n---------" +
         "\nNombre: " + nombre +
         "\nEdad: " + edad +

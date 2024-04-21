@@ -25,6 +25,7 @@ public class Main {
         // Primer Paso del tiempo
         tiempoSimulado += tiempoIncremento; // Incrementar el tiempo simulado
         mascota.envejecer( tiempoIncremento );
+        System.out.println();
         
         // leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
