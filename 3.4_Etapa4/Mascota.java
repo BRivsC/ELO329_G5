@@ -141,7 +141,7 @@ public class Mascota {
     // Método para dormir
     
     public void dormir() {
-        System.out.println(nombre + " ha dormido como un tronco!");
+        System.out.println("\n" + nombre + " ha dormido como un tronco!");
         energia = 100;
         actualizarSalud(15);
         actualizarFelicidad(15);
@@ -179,7 +179,7 @@ public class Mascota {
             estadoString = "Estado desconocido";
             break;
         }
-        return  "\nAtributos" +
+        return  "Atributos" +
         "\n---------" +
         "\nNombre: " + nombre +
         "\nEdad: " + edad +
